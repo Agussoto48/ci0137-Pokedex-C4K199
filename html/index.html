@@ -25,93 +25,160 @@
         <h1>Lista de Pokémon</h1>
 
         <section id="buscador">
+
             <h2>Buscar y filtrar</h2>
+
             <p>
                 Buscá por nombre o filtrá por tipo para encontrar un Pokémon más rápido.
             </p>
-            <fieldset>
 
-                <legend>Criterios de búsqueda</legend>
+            <search>
+                <form action="./" method="get">
 
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre">
+                    <fieldset>
 
-                <label for="tipo">Tipo</label>
+                        <legend>Criterios de búsqueda</legend>
 
-                <select id="tipo" name="tipo">
-                    <option value="">Todos los tipos</option>
-                    <option value="planta">Planta</option>
-                    <option value="fuego">Fuego</option>
-                    <option value="agua">Agua</option>
-                    <option value="electrico">Eléctrico</option>
-                </select>
+                        <label for="nombre">Nombre</label>
+                        <input type="search" id="nombre" name="nombre">
 
-                <label for="orden">Ordenar por</label>
+                        <label for="tipo">Tipo</label>
 
-                <select id="orden" name="orden">
-                    <option value="numero">Número (menor a mayor)</option>
-                    <option value="nombre">Nombre</option>
-                </select>
+                        <select id="tipo" name="tipo">
+                            <option value="">Todos los tipos</option>
+                            <option value="planta">Planta</option>
+                            <option value="veneno">Veneno</option>
+                            <option value="fuego">Fuego</option>
+                            <option value="volador">Volador</option>
+                            <option value="agua">Agua</option>
+                            <option value="electrico">Eléctrico</option>
+                        </select>
 
-                <button type="button">Buscar</button>
+                        <label for="orden">Ordenar por</label>
 
-            </fieldset>
+                        <select id="orden" name="orden">
+                            <option value="numero-asc">Número (menor a mayor)</option>
+                            <option value="numero-desc">Número (mayor a menor)</option>
+                            <option value="nombre-asc">Nombre (A-Z)</option>
+                            <option value="nombre-desc">Nombre (Z-A)</option>
+                            <option value="tamano-asc">Tamaño (menor a mayor)</option>
+                            <option value="tamano-desc">Tamaño (mayor a menor)</option>
+                        </select>
 
+                        <label>
+                            <input type="checkbox" name="capturados" value="si">
+                            Mostrar solo los que ya capturé
+                        </label>
+                        <fieldset>
+                            <legend>Etapa evolutiva</legend>
+
+                            <label>
+                                <input type="radio" name="etapa" value="todas" checked>
+                                Todas
+                            </label>
+
+                            <label>
+                                <input type="radio" name="etapa" value="inicial">
+                                Solo formas iniciales
+                            </label>
+
+                            <label>
+                                <input type="radio" name="etapa" value="final">
+                                Solo formas finales
+                            </label>
+                        </fieldset>
+
+                        <button type="submit">Buscar</button>
+                    </fieldset>
+
+                </form>
+            </search>
         </section>
+
         <section id="lista-pokemon">
 
             <h2>Pokémon disponibles</h2>
 
             <ul>
 
-                <li>
-                    <img src="../assets/bulbasaur.png" alt="Bulbasaur" width="70">
-                    <a href="detalle-pokemon-bulbasaur.html">#001 Bulbasaur</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-bulbasaur.html">
+                        <img src="../assets/bulbasaur.png" alt="Bulbasaur" width="70">
+                        <span>#001</span>
+                        <span>Bulbasaur</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/ivysaur.png" alt="Ivysaur" width="70">
-                    <a href="detalle-pokemon-ivysaur.html">#002 Ivysaur</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-ivysaur.html">
+                        <img src="../assets/ivysaur.png" alt="Ivysaur" width="70">
+                        <span>#002</span>
+                        <span>Ivysaur</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/venusaur.png" alt="Venusaur" width="70">
-                    <a href="detalle-pokemon-venusaur.html">#003 Venusaur</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-venusaur.html">
+                        <img src="../assets/venusaur.png" alt="Venusaur" width="70">
+                        <span>#003</span>
+                        <span>Venusaur</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/charmander.png" alt="Charmander" width="70">
-                    <a href="detalle-pokemon-charmander.html">#004 Charmander</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-charmander.html">
+                        <img src="../assets/charmander.png" alt="Charmander" width="70">
+                        <span>#004</span>
+                        <span>Charmander</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/charmeleon.png" alt="Charmeleon" width="70">
-                    <a href="detalle-pokemon-charmeleon.html">#005 Charmeleon</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-charmeleon.html">
+                        <img src="../assets/charmeleon.png" alt="Charmeleon" width="70">
+                        <span>#005</span>
+                        <span>Charmeleon</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/charizard.png" alt="Charizard" width="70">
-                    <a href="detalle-pokemon-charizard.html">#006 Charizard</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-charizard.html">
+                        <img src="../assets/charizard.png" alt="Charizard" width="70">
+                        <span>#006</span>
+                        <span>Charizard</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/squirtle.png" alt="Squirtle" width="70">
-                    <a href="detalle-pokemon-squirtle.html">#007 Squirtle</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-squirtle.html">
+                        <img src="../assets/squirtle.png" alt="Squirtle" width="70">
+                        <span>#007</span>
+                        <span>Squirtle</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/wartortle.png" alt="Wartortle" width="70">
-                    <a href="detalle-pokemon-wartortle.html">#008 Wartortle</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-wartortle.html">
+                        <img src="../assets/wartortle.png" alt="Wartortle" width="70">
+                        <span>#008</span>
+                        <span>Wartortle</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/blastoise.png" alt="Blastoise" width="70">
-                    <a href="detalle-pokemon-blastoise.html">#009 Blastoise</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-blastoise.html">
+                        <img src="../assets/blastoise.png" alt="Blastoise" width="70">
+                        <span>#009</span>
+                        <span>Blastoise</span>
+                    </a>
                 </li>
 
-                <li>
-                    <img src="../assets/pikachu.png" alt="Pikachu" width="70">
-                    <a href="detalle-pokemon-pikachu.html">#025 Pikachu</a>
+                <li class="pokemon-card">
+                    <a href="detalle-pokemon-pikachu.html">
+                        <img src="../assets/pikachu.png" alt="Pikachu" width="70">
+                        <span>#025</span>
+                        <span>Pikachu</span>
+                    </a>
                 </li>
 
             </ul>
@@ -127,6 +194,9 @@
 
     </main>
 
+    <footer>
+        <p>Pokédex - CI-0137 Desarrollo de Aplicaciones Web</p>
+    </footer>
 </body>
 
 </html>
