@@ -1,0 +1,14 @@
+:root {
+    --azul: #195aba;
+    --navy: #142C52;
+    --amarillo: #ffcf49;
+    --amarillo-borde: #F0B639;
+    --crema: #FDF0CE;
+    --blanco: #F2F6FA;
+    --rojo: #DC2D1A;
+    --pista: #D6E0EB;
+
+    --radio: 10px;
+    --radio-pastilla: 999px;
+    --borde: 3px;
+}

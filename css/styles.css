@@ -1,0 +1,231 @@
+/* ==========================================================================
+   Pokédex
+   ========================================================================== */
+
+
+/*
+   1. Base
+   */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Verdana, Geneva, sans-serif;
+    background: var(--azul);
+    color: var(--blanco);
+}
+
+a {
+    color: var(--blanco);
+}
+
+
+/*
+   2. Encabezado
+   */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--navy);
+
+    padding: 2rem 2.5rem;
+}
+
+.logo {
+    display: inline-block;
+
+    background: var(--amarillo);
+    border: var(--borde) solid var(--navy);
+    border-radius: var(--radio-pastilla);
+
+    padding: 0.45rem 1.2rem;
+
+    line-height: 0;
+}
+
+.logo img {
+    width: 140px;
+    height: auto;
+}
+
+header nav ul {
+    display: flex;
+    gap: 2rem;
+
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+header nav a {
+    color: var(--blanco);
+    font-size: 1.1rem;
+}
+
+/*
+   3. Lista de Pokémon
+   */
+
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.pokemon-card {
+    width: 190px;
+    min-height: 240px;
+
+    background: var(--blanco);
+    color: var(--navy);
+
+    border: var(--borde) solid var(--amarillo-borde);
+    border-radius: var(--radio);
+
+    padding: 1rem;
+}
+
+.pokemon-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    height: 100%;
+
+    color: var(--navy);
+}
+
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.pokemon-card__number {
+    align-self: flex-end;
+
+    background: var(--amarillo);
+    color: var(--navy);
+
+    border: 2px solid var(--navy);
+    border-radius: var(--radio-pastilla);
+
+    padding: 0.2rem 0.5rem;
+
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.pokemon-card__name {
+    font-weight: bold;
+}
+
+
+/*
+   4. Paginación
+   */
+
+.paginacion {
+    list-style: none;
+    padding-left: 0;
+}
+
+
+/*
+   5. Estados
+   */
+
+.pokemon-card:hover,
+.pokemon-card:focus-within {
+    border-color: var(--navy);
+    background: var(--crema);
+}
+
+.pokemon-card a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--amarillo);
+    outline-offset: 2px;
+}
+
+
+/*
+   6. Detalle de Pokémon
+   */
+
+#carrusel ul {
+    display: flex;
+    gap: 1rem;
+
+    list-style: none;
+    padding-left: 0;
+}
+
+article figure {
+    margin-left: 0;
+}
+
+article figure img {
+    max-width: 300px;
+}
+
+
+/*
+   7. Tablas
+   */
+
+#detalles table,
+.stats-table {
+    border-collapse: collapse;
+
+    background: var(--blanco);
+    color: var(--navy);
+}
+
+#detalles th,
+#detalles td,
+.stats-table th,
+.stats-table td {
+    border: 1px solid var(--pista);
+    padding: 0.5rem 0.75rem;
+}
+
+.stats-table th,
+.stats-table td {
+    text-align: center;
+}
+
+.stats-table__total {
+    font-weight: bold;
+    background: var(--crema);
+}
+
+
+/*
+   8. Footer
+   */
+
+footer {
+    background: var(--navy);
+    color: var(--blanco);
+
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--amarillo);
+}
