@@ -1,8 +1,3 @@
-/* ==========================================================================
-   Pokédex
-   ========================================================================== */
-
-
 /*
    1. Base
    */
@@ -15,7 +10,7 @@
 
 body {
     margin: 0;
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: "Nunito", Verdana, Geneva, sans-serif;
     background: var(--azul);
     color: var(--blanco);
 }
@@ -24,28 +19,51 @@ a {
     color: var(--blanco);
 }
 
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1rem 0 1.5rem;
+}
+
+/* Oculta un elemento a la vista pero no a los lectores de pantalla */
+.solo-lector {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
 
 /*
    2. Encabezado
    */
+
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: var(--navy);
+    background: rgb(0 0 0 / 0.12);
 
-    padding: 2rem 2.5rem;
+    padding: 1.5rem 2.5rem;
 }
 
 .logo {
     display: inline-block;
 
     background: var(--amarillo);
-    border: var(--borde) solid var(--navy);
     border-radius: var(--radio-pastilla);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
 
-    padding: 0.45rem 1.2rem;
+    padding: 0.6rem 1.4rem;
 
     line-height: 0;
 }
@@ -57,7 +75,8 @@ header {
 
 header nav ul {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.5rem;
 
     list-style: none;
     margin: 0;
@@ -66,93 +85,241 @@ header nav ul {
 
 header nav a {
     color: var(--blanco);
-    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    border-radius: var(--radio-pastilla);
+    padding: 0.5rem 1rem;
 }
 
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* La página actual se marca como pastilla amarilla */
+header nav a[aria-current="page"] {
+    background: var(--amarillo);
+    color: var(--navy);
+}
+
+
 /*
-   3. Lista de Pokémon
+   3. Buscador
+   */
+
+#buscador {
+    background: rgb(255 255 255 / 0.1);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 20px;
+
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+#buscador h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#buscador p {
+    margin: 0.25rem 0 1rem;
+    opacity: 0.85;
+}
+
+#buscador fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#buscador legend {
+    padding: 0;
+    margin-bottom: 0.75rem;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.buscador__fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+
+    margin-bottom: 1rem;
+}
+
+.buscador__fila:last-child {
+    margin-bottom: 0;
+}
+
+/* Los controles de texto se dibujan como pastillas blancas */
+#buscador input[type="search"],
+#buscador select {
+    font: inherit;
+    color: var(--navy);
+    background: var(--blanco);
+
+    border: 0;
+    border-radius: var(--radio-pastilla);
+
+    padding: 0.6rem 1.2rem;
+}
+
+#buscador input[type="search"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+#buscador button {
+    font: inherit;
+    font-weight: 700;
+    color: var(--blanco);
+    background: var(--rojo);
+
+    border: 0;
+    border-radius: var(--radio-pastilla);
+
+    padding: 0.6rem 1.6rem;
+    cursor: pointer;
+}
+
+#buscador button:hover {
+    filter: brightness(1.1);
+}
+
+/* Las opciones de etapa van en línea, debajo de su leyenda */
+.buscador__fila fieldset label {
+    margin-right: 1.25rem;
+}
+
+#buscador input[type="checkbox"],
+#buscador input[type="radio"] {
+    accent-color: var(--amarillo);
+}
+
+
+/*
+   4. Lista de Pokémon
    */
 
 .pokemon-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
 
     list-style: none;
+    margin: 0;
     padding-left: 0;
 }
 
 .pokemon-card {
-    width: 190px;
-    min-height: 240px;
-
     background: var(--blanco);
     color: var(--navy);
 
-    border: var(--borde) solid var(--amarillo-borde);
-    border-radius: var(--radio);
+    border: var(--borde) solid transparent;
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgb(0 0 0 / 0.15);
 
-    padding: 1rem;
+    padding: 1.25rem;
 }
 
 .pokemon-card a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-
-    height: 100%;
+    gap: 0.75rem;
 
     color: var(--navy);
+    text-decoration: none;
 }
 
+/* El fondo a rayas detrás de la imagen es solo decoración del CSS */
 .pokemon-card img {
-    width: 100px;
-    height: 100px;
+    order: -1;
+
+    width: 100%;
+    aspect-ratio: 1;
     object-fit: contain;
+    image-rendering: pixelated;
+
+    background: repeating-linear-gradient(
+        135deg,
+        #ffffff 0 8px,
+        var(--pista) 8px 16px
+    );
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.12);
+
+    padding: 1.5rem;
 }
 
 .pokemon-card__number {
-    align-self: flex-end;
-
     background: var(--amarillo);
     color: var(--navy);
 
-    border: 2px solid var(--navy);
+    border: 2px solid var(--amarillo-borde);
     border-radius: var(--radio-pastilla);
 
-    padding: 0.2rem 0.5rem;
+    padding: 0.15rem 0.7rem;
 
     font-size: 0.85rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .pokemon-card__name {
-    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: 900;
 }
 
 
 /*
-   4. Paginación
+   5. Paginación
    */
 
 .paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+
     list-style: none;
+    margin: 2rem 0;
     padding-left: 0;
+}
+
+.paginacion a {
+    display: inline-block;
+
+    min-width: 2.5rem;
+    padding: 0.5rem;
+
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+
+    background: rgb(255 255 255 / 0.1);
+    border-radius: var(--radio-pastilla);
+}
+
+.paginacion a:hover {
+    background: var(--amarillo);
+    color: var(--navy);
 }
 
 
 /*
-   5. Estados
+   6. Estados
    */
 
 .pokemon-card:hover,
 .pokemon-card:focus-within {
-    border-color: var(--navy);
+    border-color: var(--amarillo);
     background: var(--crema);
 }
 
-.pokemon-card a:hover {
+.pokemon-card a:hover .pokemon-card__name {
     text-decoration: underline;
 }
 
@@ -163,7 +330,7 @@ a:focus-visible {
 
 
 /*
-   6. Detalle de Pokémon
+   7. Detalle de Pokémon
    */
 
 #carrusel ul {
@@ -184,7 +351,7 @@ article figure img {
 
 
 /*
-   7. Tablas
+   8. Tablas
    */
 
 #detalles table,
@@ -215,17 +382,48 @@ article figure img {
 
 
 /*
-   8. Footer
+   9. Footer
    */
 
 footer {
     background: var(--navy);
     color: var(--blanco);
 
-    padding: 1.5rem;
+    padding: 1.5rem 2.5rem;
     margin-top: 2rem;
 }
 
 footer a {
     color: var(--amarillo);
+}
+
+
+/*
+   10. Pantallas angostas
+   */
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #buscador {
+        padding: 1.25rem;
+    }
 }
