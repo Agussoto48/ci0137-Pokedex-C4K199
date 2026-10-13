@@ -58,22 +58,44 @@ function dibujar(listaPokemon) {
 }
 
 
-// -------------------------------------------------------------
-// PASO 3 — filtrar()  +  eventos del formulario
-//   Lee los criterios del formulario y devuelve la lista filtrada.
-//   Pistas:
-//     - new FormData(form)              -> leer todos los campos
-//     - datos.get('nombre'), datos.get('tipo'), etc.
-//     - pokedex.filter((p) => { ... })  -> dejar solo los que cumplen
-//     - .sort(...)                      -> ordenar segun "Ordenar por"
-//     - quitar tildes antes de comparar (p. ej. una función normalizar)
-//
-//   Y conectar el formulario con el código (EVENTOS):
-//     - form.addEventListener('submit', (e) => { e.preventDefault(); dibujar(filtrar()); })
-//           preventDefault evita que la página se recargue
-//     - form.addEventListener('input', () => dibujar(filtrar()))  -> filtrar en vivo
-// -------------------------------------------------------------
+// PASO 3 — filtra y ordena según el formulario
 
+// Minúsculas y sin tildes: "Eléctrico" -> "electrico"
+function normalizar(texto) {
+  return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+const ordenes = {
+  'numero-asc': (a, b) => a.id - b.id,
+  'numero-desc': (a, b) => b.id - a.id,
+  'nombre-asc': (a, b) => a.nombre.localeCompare(b.nombre),
+  'nombre-desc': (a, b) => b.nombre.localeCompare(a.nombre),
+  'tamano-asc': (a, b) => a.tamano - b.tamano,
+  'tamano-desc': (a, b) => b.tamano - a.tamano,
+};
+
+function filtrar() {
+  const datos = new FormData(form);
+  const nombre = normalizar(datos.get('nombre') ?? '');
+  const tipo = datos.get('tipo') ?? '';
+  const soloCapturados = datos.get('capturados') === 'si';
+  const etapa = datos.get('etapa') ?? 'todas';
+  const orden = ordenes[datos.get('orden')] ?? ordenes['numero-asc'];
+
+  return pokedex
+    .filter((p) => normalizar(p.nombre).includes(nombre))
+    .filter((p) => !tipo || p.tipos.some((t) => normalizar(t) === tipo))
+    .filter((p) => !soloCapturados || p.capturado)
+    .filter((p) => etapa === 'todas' || p.etapa === etapa)
+    .sort(orden);
+}
+
+// submit: evita que la página se recargue; input: filtra en vivo
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  dibujar(filtrar());
+});
+form.addEventListener('input', () => dibujar(filtrar()));
 
 // Primer dibujado al cargar la página
-dibujar(pokedex);
+dibujar(filtrar());
