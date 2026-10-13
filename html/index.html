@@ -10,7 +10,7 @@
     <link rel="icon" href="../favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap">
-    <script src="../js/pokedex.js" defer></script>
+    <script type="module" src="../js/lista.js"></script>
 </head>
 
 <body>
@@ -110,89 +110,8 @@
 
             <h2 class="solo-lector">Pokémon disponibles</h2>
 
-            <ul class="pokemon-list">
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-bulbasaur.html">
-                        <span class="pokemon-card__number">#001</span>
-                        <img src="../assets/bulbasaur.png" alt="Bulbasaur" width="70">
-                        <span class="pokemon-card__name">Bulbasaur</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-ivysaur.html">
-                        <span class="pokemon-card__number">#002</span>
-                        <img src="../assets/ivysaur.png" alt="Ivysaur" width="70">
-                        <span class="pokemon-card__name">Ivysaur</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-venusaur.html">
-                        <span class="pokemon-card__number">#003</span>
-                        <img src="../assets/venusaur.png" alt="Venusaur" width="70">
-                        <span class="pokemon-card__name">Venusaur</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-charmander.html">
-                        <span class="pokemon-card__number">#004</span>
-                        <img src="../assets/charmander.png" alt="Charmander" width="70">
-                        <span class="pokemon-card__name">Charmander</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-charmeleon.html">
-                        <span class="pokemon-card__number">#005</span>
-                        <img src="../assets/charmeleon.png" alt="Charmeleon" width="70">
-                        <span class="pokemon-card__name">Charmeleon</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-charizard.html">
-                        <span class="pokemon-card__number">#006</span>
-                        <img src="../assets/charizard.png" alt="Charizard" width="70">
-                        <span class="pokemon-card__name">Charizard</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-squirtle.html">
-                        <span class="pokemon-card__number">#007</span>
-                        <img src="../assets/squirtle.png" alt="Squirtle" width="70">
-                        <span class="pokemon-card__name">Squirtle</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-wartortle.html">
-                        <span class="pokemon-card__number">#008</span>
-                        <img src="../assets/wartortle.png" alt="Wartortle" width="70">
-                        <span class="pokemon-card__name">Wartortle</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-blastoise.html">
-                        <span class="pokemon-card__number">#009</span>
-                        <img src="../assets/blastoise.png" alt="Blastoise" width="70">
-                        <span class="pokemon-card__name">Blastoise</span>
-                    </a>
-                </li>
-
-                <li class="pokemon-card">
-                    <a href="detalle-pokemon-pikachu.html">
-                        <span class="pokemon-card__number">#025</span>
-                        <img src="../assets/pikachu.png" alt="Pikachu" width="70">
-                        <span class="pokemon-card__name">Pikachu</span>
-                    </a>
-                </li>
-
-            </ul>
+            <!-- Lo llena lista.js -->
+            <ul class="pokemon-list"></ul>
 
         </section>
         <nav id="paginacion">
