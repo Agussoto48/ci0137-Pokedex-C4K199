@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap">
+
+    <title>Pokédex - Ficha</title>
+
+    <script type="module" src="../js/ficha.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="index.html">
+            <img src="../assets/logo-pokedex.svg" alt="Pokédex">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-current="true">Pokédex</a></li>
+                <li><a href="perfil-entrenador.html">Perfil de entrenador</a></li>
+                <li><a href="acerca-de.html">Acerca de</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <nav id="carrusel">
+            <h2 class="solo-lector">Pokémon cercanos</h2>
+            <ul class="carrusel"></ul>
+        </nav>
+
+        <p class="volver"><a href="index.html">&larr; Volver a la lista</a></p>
+
+        <article id="ficha-pokemon"></article>
+
+    </main>
+
+    <footer>
+        <p><small>Proyecto académico del curso Desarrollo de Aplicaciones Web
+                (<abbr title="Curso de Informática 0137">CI-0137</abbr>),
+                Escuela de Ciencias de la Computación e Informática,
+                <abbr title="Universidad de Costa Rica">UCR</abbr>.
+                <time datetime="2026">2026</time>.</small></p>
+
+        <p><small>Pokémon y sus personajes son marcas registradas de Nintendo,
+                Game Freak y The Pokémon Company. Este sitio no tiene ninguna relación con
+                ellos y se usa únicamente con fines educativos.</small></p>
+
+        <p><small>Ilustraciones y sprites tomados del repositorio
+                <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a>.
+                Datos de referencia consultados en
+                <a href="https://pokeapi.co/" target="_blank" rel="noopener">PokeAPI</a>.</small></p>
+    </footer>
+
+</body>
+
+</html>
