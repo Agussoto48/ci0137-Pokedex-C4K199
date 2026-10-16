@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <title>Red, entrenador de Pueblo Paleta</title>
+  <ellipse cx="90" cy="176" rx="62" ry="40" fill="#2967C5"/>
+  <path d="M50 176c4-30 20-40 40-40s36 10 40 40z" fill="#142C52"/>
+  <rect x="80" y="112" width="20" height="26" rx="8" fill="#F1C7A0"/>
+  <circle cx="90" cy="86" r="34" fill="#F8D5B4"/>
+  <path d="M54 80c0-24 16-40 36-40s36 16 36 40c-14-8-24-10-36-10s-22 2-36 10z" fill="#DC2D1A"/>
+  <path d="M52 82c14-8 24-11 38-11s24 3 38 11l6 5c-6 3-14 2-22-1-8-3-14-4-22-4s-14 1-22 4c-8 3-16 4-22 1z" fill="#B3220F"/>
+  <circle cx="90" cy="56" r="9" fill="#fff" stroke="#142C52" stroke-width="2.5"/>
+  <circle cx="90" cy="56" r="3.2" fill="#142C52"/>
+  <circle cx="76" cy="94" r="3.4" fill="#142C52"/>
+  <circle cx="104" cy="94" r="3.4" fill="#142C52"/>
+  <path d="M82 106c4 4 12 4 16 0" stroke="#142C52" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

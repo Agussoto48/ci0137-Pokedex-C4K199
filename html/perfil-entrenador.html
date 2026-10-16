@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Perfil de entrenador</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/perfil-entrenador.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Fredoka:wght@500;600;700&display=swap">
+</head>
+
+<body>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M17 14.2c2.4.3 4 2.6 4 5.8"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.8 5.8 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.7l6.2-.9z"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20v-8M12 20V5M19 20V9"/></symbol>
+      <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M4 10h16M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-ruler" viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="8" rx="2"/><path d="M6 8v3M10 8v4M14 8v3M18 8v4"/></symbol>
+      <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11a2.1 2.1 0 00-3-3L5 16l-1 4z"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-ball" viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="4"/><path d="M 3 32 A 29 29 0 0 1 61 32 Z" fill="#e63946" stroke="none"/><line x1="3" y1="32" x2="61" y2="32" stroke="#1a1a1a" stroke-width="4"/><circle cx="32" cy="32" r="10" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="4"/><circle cx="32" cy="32" r="4" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="2"/></symbol>
+    </svg>
+
+    <header>
+        <a class="logo" href="index.html">
+            <img src="../assets/logo-pokedex.svg" alt="Pokédex">
+        </a>
+        <div class="header__acciones">
+            <p class="contador">10 Pokémon</p>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Pokédex</a></li>
+                    <li><a href="perfil-entrenador.html" aria-current="page">Perfil de entrenador</a></li>
+                    <li><a href="acerca-de.html">Acerca de</a></li>
+                    <li><a href="configuracion.html">Configuración</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+      <!-- Tarjeta del entrenador: avatar + datos + botón de edición. -->
+      <section class="entrenador" aria-labelledby="entrenador-nombre">
+        <img class="entrenador__avatar" src="../assets/red.svg" alt="Ilustración de Red, con su gorra roja" width="188" height="188">
+
+        <div class="entrenador__datos">
+          <h1 id="entrenador-nombre"><span>#0001</span> Red</h1>
+
+          <!-- Edad, ciudad y estatura son datos sueltos sin orden: una lista
+              <ul> con "chips" (el ícono va aparte del texto). -->
+          <ul class="entrenador__chips">
+            <li><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-cal"/></svg> <span><span class="solo-lector">Edad: </span>11 años</span></li>
+            <li><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-pin"/></svg> <span><span class="solo-lector">Ciudad de origen: </span>Pueblo Paleta</span></li>
+            <li><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-ruler"/></svg> <span><span class="solo-lector">Estatura: </span>1.50 m</span></li>
+          </ul>
+
+          <p class="entrenador__bio">Entrenador de Pueblo Paleta que soñó desde niño con completar la Pokédex. Viaja con su equipo, captura Pokémon nuevos y anota cada descubrimiento en su libreta.</p>
+        </div>
+
+        <button type="button" class="boton boton--rojo entrenador__editar"><svg class="icono icono--chico" aria-hidden="true" width="24" height="24"><use href="#i-pencil"/></svg> Editar perfil</button>
+      </section>
+
+      <!-- Las cuatro secciones son BOTONES (no enlaces): no llevan a otra
+          página, abren un diálogo en esta misma. Cada uno apunta al id de su
+          diálogo con command="show-modal" commandfor="id". -->
+      <section aria-labelledby="secciones-titulo">
+        <h2 id="secciones-titulo" class="solo-lector">Mi colección</h2>
+
+        <ul class="secciones">
+          <li>
+            <button type="button" class="seccion seccion--equipo" command="show-modal" commandfor="modal-equipo">
+              <span class="seccion__icono"><svg class="icono icono--grande" aria-hidden="true" width="24" height="24"><use href="#i-team"/></svg></span>
+              <span class="seccion__texto">
+                <span class="seccion__titulo">Equipo Pokémon</span>
+                <span class="seccion__detalle">5 de 6 espacios ocupados</span>
+                <ul class="mini-sprites" aria-hidden="true"><li><img src="../assets/bulbasaur.png" alt="" width="34" height="34"></li><li><img src="../assets/ivysaur.png" alt="" width="34" height="34"></li><li><img src="../assets/charmander.png" alt="" width="34" height="34"></li><li><img src="../assets/squirtle.png" alt="" width="34" height="34"></li><li class="mini-sprites__mas">+1</li></ul>
+              </span>
+              <span class="seccion__flecha"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="seccion seccion--capturados" command="show-modal" commandfor="modal-capturados">
+              <span class="seccion__icono"><svg class="icono icono--grande" aria-hidden="true" width="24" height="24"><use href="#i-ball"/></svg></span>
+              <span class="seccion__texto">
+                <span class="seccion__titulo">Pokémon Capturados</span>
+                <span class="seccion__detalle">24 Pokémon en tu colección</span>
+                <ul class="mini-sprites" aria-hidden="true"></ul>
+              </span>
+              <span class="seccion__flecha"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="seccion seccion--favoritos" command="show-modal" commandfor="modal-favoritos">
+              <span class="seccion__icono"><svg class="icono icono--grande icono--lleno" aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg></span>
+              <span class="seccion__texto">
+                <span class="seccion__titulo">Favoritos</span>
+                <span class="seccion__detalle">4 Pokémon marcados</span>
+                <ul class="mini-sprites" aria-hidden="true"><li><img src="../assets/bulbasaur.png" alt="" width="34" height="34"></li><li><img src="../assets/charmander.png" alt="" width="34" height="34"></li><li><img src="../assets/squirtle.png" alt="" width="34" height="34"></li><li><img src="../assets/pikachu.png" alt="" width="34" height="34"></li></ul>
+              </span>
+              <span class="seccion__flecha"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="seccion seccion--estadisticas" command="show-modal" commandfor="modal-estadisticas">
+              <span class="seccion__icono"><svg class="icono icono--grande" aria-hidden="true" width="24" height="24"><use href="#i-chart"/></svg></span>
+              <span class="seccion__texto">
+                <span class="seccion__titulo">Estadísticas</span>
+                <span class="seccion__detalle">Comparativa de tu equipo</span>
+                <span class="mini-barras" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+              </span>
+              <span class="seccion__flecha"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></span>
+            </button>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <!-- ======================================================================
+         DIÁLOGOS
+         <dialog> es el elemento nativo para ventanas modales. Está cerrado y
+         oculto hasta que un botón lo abre. Se cierra con Esc, con
+         clic en el fondo o con los botones. aria-labelledby le da nombre al
+         diálogo con el texto de su título.
+         ====================================================================== -->
+
+    <!-- Cómo se abren y cierran SIN JavaScript: los botones usan los atributos
+        command y commandfor (Invoker Commands). command="show-modal"
+        commandfor="id" equivale a llamar showModal() en ese diálogo, y
+        command="close" a close(). closedby="any" en el <dialog> agrega el
+        cierre con clic en el fondo. Esc ya cierra por defecto. -->
+
+    <!-- 1. Equipo Pokémon -->
+    <dialog closedby="any" class="modal modal--equipo" id="modal-equipo" aria-labelledby="equipo-titulo">
+      <div class="modal__cabecera">
+        <div class="modal__titulo">
+          <span class="modal__icono"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-team"/></svg></span>
+          <h2 id="equipo-titulo">Team Pokémon</h2>
+        </div>
+        <button type="button" class="modal__cerrar" command="close" commandfor="modal-equipo" aria-label="Cerrar diálogo"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-x"/></svg></button>
+      </div>
+
+      <div class="modal__cuerpo">
+        <p class="modal__subtitulo">
+          <span>5 de 6 espacios ocupados</span>
+          <span class="pips" aria-hidden="true"><span class="lleno"></span><span class="lleno"></span><span class="lleno"></span><span class="lleno"></span><span class="lleno"></span><span></span></span>
+        </p>
+
+        <ul class="equipo">
+            <li class="equipo__ficha">
+              <div class="sprite-zona"><span class="numero">#001</span><img src="../assets/bulbasaur.png" alt="" width="96" height="96"></div>
+              <h3>Bulbasaur</h3>
+              <span class="tipos"><span class="tipo tipo--planta">Planta</span><span class="tipo tipo--veneno">Veneno</span></span>
+              <button type="button" class="boton boton--borde-rojo boton--chico"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-minus"/></svg> Quitar<span class="solo-lector"> a Bulbasaur del equipo</span></button>
+            </li>
+            <li class="equipo__ficha">
+              <div class="sprite-zona"><span class="numero">#002</span><img src="../assets/ivysaur.png" alt="" width="96" height="96"></div>
+              <h3>Ivysaur</h3>
+              <span class="tipos"><span class="tipo tipo--planta">Planta</span><span class="tipo tipo--veneno">Veneno</span></span>
+              <button type="button" class="boton boton--borde-rojo boton--chico"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-minus"/></svg> Quitar<span class="solo-lector"> a Ivysaur del equipo</span></button>
+            </li>
+            <li class="equipo__ficha">
+              <div class="sprite-zona"><span class="numero">#004</span><img src="../assets/charmander.png" alt="" width="96" height="96"></div>
+              <h3>Charmander</h3>
+              <span class="tipos"><span class="tipo tipo--fuego">Fuego</span></span>
+              <button type="button" class="boton boton--borde-rojo boton--chico"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-minus"/></svg> Quitar<span class="solo-lector"> a Charmander del equipo</span></button>
+            </li>
+            <li class="equipo__ficha">
+              <div class="sprite-zona"><span class="numero">#007</span><img src="../assets/squirtle.png" alt="" width="96" height="96"></div>
+              <h3>Squirtle</h3>
+              <span class="tipos"><span class="tipo tipo--agua">Agua</span></span>
+              <button type="button" class="boton boton--borde-rojo boton--chico"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-minus"/></svg> Quitar<span class="solo-lector"> a Squirtle del equipo</span></button>
+            </li>
+            <li class="equipo__ficha">
+              <div class="sprite-zona"><span class="numero">#025</span><img src="../assets/pikachu.png" alt="" width="96" height="96"></div>
+              <h3>Pikachu</h3>
+              <span class="tipos"><span class="tipo tipo--electrico">Eléctrico</span></span>
+              <button type="button" class="boton boton--borde-rojo boton--chico"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-minus"/></svg> Quitar<span class="solo-lector"> a Pikachu del equipo</span></button>
+            </li>
+            <li class="equipo__libre">
+              <span class="equipo__mas"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg></span>
+              Espacio libre
+            </li>
+        </ul>
+      </div>
+
+      <div class="modal__pie">
+        <span></span>
+        <div class="modal__acciones">
+          <button type="button" class="boton boton--primario" command="show-modal" commandfor="modal-capturados"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg> Agregar desde capturados</button>
+          <button type="button" class="boton boton--claro" command="close" commandfor="modal-equipo">Cerrar</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 2. Favoritos -->
+    <dialog closedby="any" class="modal modal--favoritos" id="modal-favoritos" aria-labelledby="favoritos-titulo">
+      <div class="modal__cabecera">
+        <div class="modal__titulo">
+          <span class="modal__icono"><svg class="icono icono--lleno" aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg></span>
+          <h2 id="favoritos-titulo">Favoritos</h2>
+        </div>
+        <button type="button" class="modal__cerrar" command="close" commandfor="modal-favoritos" aria-label="Cerrar diálogo"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-x"/></svg></button>
+      </div>
+
+      <div class="modal__cuerpo">
+        <p class="modal__subtitulo">4 Pokémon marcados como favoritos</p>
+
+        <ul class="favoritos">
+            <li class="favorito">
+              <span class="favorito__estrella"><svg class="icono icono--fav" aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg></span>
+              <div class="sprite-zona sprite-zona--chica"><img src="../assets/bulbasaur.png" alt="" width="64" height="64"></div>
+              <div class="favorito__datos">
+                <h3>Bulbasaur <span class="numero">#001</span></h3>
+                <span class="tipos"><span class="tipo tipo--planta">Planta</span><span class="tipo tipo--veneno">Veneno</span></span>
+              </div>
+              <div class="favorito__acciones">
+                <a class="boton boton--borde-azul boton--chico" href="detalle.html?id=1">Ver detalle <svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></a>
+                <button type="button" class="boton boton--borde-rojo boton--chico">Quitar de favoritos<span class="solo-lector">: Bulbasaur</span></button>
+              </div>
+            </li>
+            <li class="favorito">
+              <span class="favorito__estrella"><svg class="icono icono--fav" aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg></span>
+              <div class="sprite-zona sprite-zona--chica"><img src="../assets/charmander.png" alt="" width="64" height="64"></div>
+              <div class="favorito__datos">
+                <h3>Charmander <span class="numero">#004</span></h3>
+                <span class="tipos"><span class="tipo tipo--fuego">Fuego</span></span>
+              </div>
+              <div class="favorito__acciones">
+                <a class="boton boton--borde-azul boton--chico" href="detalle.html?id=4">Ver detalle <svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></a>
+                <button type="button" class="boton boton--borde-rojo boton--chico">Quitar de favoritos<span class="solo-lector">: Charmander</span></button>
+              </div>
+            </li>
+            <li class="favorito">
+              <span class="favorito__estrella"><svg class="icono icono--fav" aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg></span>
+              <div class="sprite-zona sprite-zona--chica"><img src="../assets/squirtle.png" alt="" width="64" height="64"></div>
+              <div class="favorito__datos">
+                <h3>Squirtle <span class="numero">#007</span></h3>
+                <span class="tipos"><span class="tipo tipo--agua">Agua</span></span>
+              </div>
+              <div class="favorito__acciones">
+                <a class="boton boton--borde-azul boton--chico" href="detalle.html?id=7">Ver detalle <svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></a>
+                <button type="button" class="boton boton--borde-rojo boton--chico">Quitar de favoritos<span class="solo-lector">: Squirtle</span></button>
+              </div>
+            </li>
+            <li class="favorito">
+              <span class="favorito__estrella"><svg class="icono icono--fav" aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg></span>
+              <div class="sprite-zona sprite-zona--chica"><img src="../assets/pikachu.png" alt="" width="64" height="64"></div>
+              <div class="favorito__datos">
+                <h3>Pikachu <span class="numero">#025</span></h3>
+                <span class="tipos"><span class="tipo tipo--electrico">Eléctrico</span></span>
+              </div>
+              <div class="favorito__acciones">
+                <a class="boton boton--borde-azul boton--chico" href="detalle.html?id=25">Ver detalle <svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></a>
+                <button type="button" class="boton boton--borde-rojo boton--chico">Quitar de favoritos<span class="solo-lector">: Pikachu</span></button>
+              </div>
+            </li>
+        </ul>
+      </div>
+
+      <div class="modal__pie">
+        <span></span>
+        <div class="modal__acciones">
+          <button type="button" class="boton boton--primario" command="show-modal" commandfor="modal-capturados"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg> Agregar desde capturados</button>
+          <button type="button" class="boton boton--claro" command="close" commandfor="modal-favoritos">Cerrar</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 3. Estadísticas -->
+    <dialog closedby="any" class="modal modal--estadisticas modal--ancho" id="modal-estadisticas" aria-labelledby="estadisticas-titulo">
+      <div class="modal__cabecera">
+        <div class="modal__titulo">
+          <span class="modal__icono"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-chart"/></svg></span>
+          <h2 id="estadisticas-titulo">Estadísticas</h2>
+        </div>
+        <button type="button" class="modal__cerrar" command="close" commandfor="modal-estadisticas" aria-label="Cerrar diálogo"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-x"/></svg></button>
+      </div>
+
+      <div class="modal__cuerpo">
+        <p class="modal__subtitulo">Comparativa de los Pokémon de tu equipo</p>
+
+        <!-- La tabla se envuelve en un div con scroll horizontal: en un
+            celular no cabe, y así se desliza sin romper la página. -->
+        <div class="tabla-scroll">
+          <table class="stats-table stats-table--equipo">
+            <caption class="solo-lector">Estadísticas base de los Pokémon del equipo</caption>
+            <thead>
+              <tr>
+                <th scope="col">Pokémon</th>
+                <th scope="col"><abbr title="Puntos de Salud">PS</abbr></th>
+                <th scope="col"><abbr title="Ataque">ATQ</abbr></th>
+                <th scope="col"><abbr title="Defensa">DEF</abbr></th>
+                <th scope="col"><abbr title="Ataque Especial">AT.ESP</abbr></th>
+                <th scope="col"><abbr title="Defensa Especial">DEF.ESP</abbr></th>
+                <th scope="col"><abbr title="Velocidad">VEL</abbr></th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><span class="stat-pokemon"><span class="sprite-zona sprite-zona--mini"><img src="../assets/bulbasaur.png" alt="" width="40" height="40"></span>Bulbasaur</span></th>
+                <td style="--valor: 45">45</td><td style="--valor: 49">49</td><td style="--valor: 49">49</td><td style="--valor: 65">65</td><td style="--valor: 65">65</td><td style="--valor: 45">45</td>
+                <td><span class="total-pastilla">318</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="stat-pokemon"><span class="sprite-zona sprite-zona--mini"><img src="../assets/ivysaur.png" alt="" width="40" height="40"></span>Ivysaur</span></th>
+                <td style="--valor: 60">60</td><td style="--valor: 62">62</td><td style="--valor: 63">63</td><td style="--valor: 80">80</td><td style="--valor: 80">80</td><td style="--valor: 60">60</td>
+                <td><span class="total-pastilla">405</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="stat-pokemon"><span class="sprite-zona sprite-zona--mini"><img src="../assets/charmander.png" alt="" width="40" height="40"></span>Charmander</span></th>
+                <td style="--valor: 39">39</td><td style="--valor: 52">52</td><td style="--valor: 43">43</td><td style="--valor: 60">60</td><td style="--valor: 50">50</td><td style="--valor: 65">65</td>
+                <td><span class="total-pastilla">309</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="stat-pokemon"><span class="sprite-zona sprite-zona--mini"><img src="../assets/squirtle.png" alt="" width="40" height="40"></span>Squirtle</span></th>
+                <td style="--valor: 44">44</td><td style="--valor: 48">48</td><td style="--valor: 65">65</td><td style="--valor: 50">50</td><td style="--valor: 64">64</td><td style="--valor: 43">43</td>
+                <td><span class="total-pastilla">314</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="stat-pokemon"><span class="sprite-zona sprite-zona--mini"><img src="../assets/pikachu.png" alt="" width="40" height="40"></span>Pikachu</span></th>
+                <td style="--valor: 35">35</td><td style="--valor: 55">55</td><td style="--valor: 40">40</td><td style="--valor: 50">50</td><td style="--valor: 50">50</td><td style="--valor: 90">90</td>
+                <td><span class="total-pastilla">320</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="stats-table__total">
+                <th scope="row">Promedio del equipo</th>
+                <td>45</td><td>53</td><td>52</td><td>61</td><td>62</td><td>61</td>
+                <td>333</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p class="modal__nota">Valores base tomados de la Pokédex · la fila de totales resume el equipo completo.</p>
+      </div>
+
+      <div class="modal__pie">
+        <span></span>
+        <div class="modal__acciones">
+          <button type="button" class="boton boton--primario" command="close" commandfor="modal-estadisticas">Cerrar</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 4. Pokémon capturados (selección) -->
+    <dialog closedby="any" class="modal modal--capturados modal--ancho" id="modal-capturados" aria-labelledby="capturados-titulo">
+      <div class="modal__cabecera">
+        <div class="modal__titulo">
+          <span class="modal__icono"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-ball"/></svg></span>
+          <h2 id="capturados-titulo">Pokémon capturados</h2>
+        </div>
+        <button type="button" class="modal__cerrar" command="close" commandfor="modal-capturados" aria-label="Cerrar diálogo"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-x"/></svg></button>
+      </div>
+
+      <div class="modal__cuerpo">
+        <p class="modal__subtitulo">Seleccioná los que querés en tu equipo o marcalos como favoritos.</p>
+
+        <search>
+          <form class="modal__buscador" action="perfil-entrenador.html" method="get">
+            <label class="campo campo--texto">
+              <svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-search"/></svg>
+              <span class="solo-lector">Buscar por nombre</span>
+              <input type="search" name="nombre" placeholder="Buscar por nombre">
+            </label>
+            <label class="campo campo--select">
+              <span class="solo-lector">Tipo</span>
+              <select name="tipo">
+                <option value="">Todos los tipos</option>
+                <option value="planta">Planta</option>
+                <option value="fuego">Fuego</option>
+                <option value="agua">Agua</option>
+              </select>
+              <svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-chev"/></svg>
+            </label>
+            <button type="submit" class="boton boton--primario"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-search"/></svg> Buscar</button>
+          </form>
+        </search>
+
+        <!-- Dos casillas por tarjeta: la de arriba a la izquierda selecciona
+            para el equipo; la estrella marca favorito. Los dos son
+            <input type="checkbox"> reales (se pueden usar con teclado) y el
+            CSS los dibuja como casilla y como estrella. -->
+        <div class="capturados-caja">
+          <ul class="capturados"></ul>
+        </div>
+      </div>
+
+      <div class="modal__pie">
+        <div class="modal__acciones">
+          <button type="button" class="boton boton--claro"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg> Marcar favorito</button>
+          <button type="button" class="boton boton--primario"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg> Agregar al equipo</button>
+        </div>
+      </div>
+    </dialog>
+
+    <footer>
+        <p>Pokédex - CI-0137 Desarrollo de Aplicaciones Web</p>
+    </footer>
+</body>
+
+</html>

@@ -626,7 +626,82 @@ footer a {
 
 
 /*
-   10. Pantallas angostas
+   10. Botones
+   */
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0 1.4rem;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: var(--radio-pastilla);
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur);
+}
+
+.boton:hover {
+    transform: translateY(-2px);
+}
+
+.boton:active {
+    transform: translateY(1px) scale(.98);
+}
+
+.boton--primario {
+    background: var(--azul);
+    color: #fff;
+    box-shadow: 0 8px 18px -4px rgba(41, 103, 197, .6), inset 0 1px 0 rgba(255, 255, 255, .25);
+}
+
+.boton--rojo {
+    background: var(--rojo);
+    color: #fff;
+}
+
+.boton--claro {
+    background: #fff;
+    color: var(--navy);
+    border-color: #C7D5E8;
+}
+
+.boton--borde-azul {
+    background: #fff;
+    color: var(--azul);
+    border-color: var(--azul);
+}
+
+.boton--borde-rojo {
+    background: #fff;
+    color: var(--rojo);
+    border-color: var(--rojo);
+}
+
+.boton--chico {
+    min-height: 2.25rem;
+    padding: 0 1rem;
+    font-size: .9rem;
+}
+
+.boton svg {
+    flex-shrink: 0;
+}
+
+.boton--claro:focus-visible,
+.boton--borde-azul:focus-visible,
+.boton--borde-rojo:focus-visible {
+    outline-color: var(--azul-borde);
+}
+
+
+/*
+   11. Pantallas angostas
    */
 
 @media (max-width: 700px) {
