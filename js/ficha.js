@@ -11,6 +11,7 @@ import { pokedex, buscarPorId, numeroPokedex, totalStats } from './datos.js';
 
 const ficha = document.querySelector('#ficha-pokemon');          // el <article> vacío
 const carrusel = document.querySelector('#carrusel .carrusel');  // el <ul> del carrusel
+const contador = document.querySelector('.contador');
 
 // Nombres para mostrar de cada estadística
 const nombresStats = {
@@ -27,6 +28,11 @@ function capitalizar(texto) {
   return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
 
+// "eléctrico" -> "electrico" (para el nombre de la clase CSS)
+function sinTildes(texto) {
+  return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 // "#007 Squirtle"
 function etiqueta(p) {
   return `${numeroPokedex(p.id)} ${p.nombre}`;
@@ -34,8 +40,10 @@ function etiqueta(p) {
 
 
 // PASO 2 — arma el contenido de la ficha
+// innerHTML es seguro aquí: los datos son nuestros (datos.js), no del usuario
 function dibujarFicha(p) {
-  const tipos = p.tipos.map(capitalizar).join(' / ');
+  const tipos = p.tipos.map((t) => `
+    <li class="tipo tipo--${sinTildes(t)}">${capitalizar(t)}</li>`).join('');
 
   const habilidades = p.habilidades.map((h) => `
     <li>
@@ -49,35 +57,39 @@ function dibujarFicha(p) {
       <td>${valor}</td>
     </tr>`).join('');
 
-  // Las evoluciones que no están en la Pokédex (p. ej. Pichu) van sin enlace
+  // El actual va resaltado; los que no están en la Pokédex (p. ej. Pichu) van sin enlace
   const evoluciones = p.evolucion.map((nombre) => {
     const evo = pokedex.find((x) => x.nombre === nombre);
-    return evo
-      ? `<li><a href="detalle.html?id=${evo.id}">${etiqueta(evo)}</a></li>`
-      : `<li>${nombre}</li>`;
+    if (evo?.id === p.id) return `<li><span aria-current="page">${nombre}</span></li>`;
+    if (evo) return `<li><a href="detalle.html?id=${evo.id}">${nombre}</a></li>`;
+    return `<li><span>${nombre}</span></li>`;
   }).join('');
 
   ficha.innerHTML = `
-    <h1>${etiqueta(p)}</h1>
-
-    <figure>
-      <img src="../assets/${p.slug}-grande.png" alt="${p.nombre}" width="300">
-      <figcaption>${p.nombre}, Pokémon de tipo ${tipos}.</figcaption>
-    </figure>
-
+    <h1>
+      <span class="ficha-pokemon__numero">${numeroPokedex(p.id)}</span>
+      ${p.nombre}
+    </h1>
     <p>${p.descripcion}</p>
 
-    <section id="detalles">
-      <h2>Detalles</h2>
-      <table>
-        <tbody>
-          <tr><th>Tipo</th><td>${tipos}</td></tr>
-          <tr><th>Categoría</th><td>${p.genus}</td></tr>
-          <tr><th>Altura</th><td>${p.tamano.toFixed(1)} m</td></tr>
-          <tr><th>Peso</th><td>${p.peso.toFixed(1)} kg</td></tr>
-        </tbody>
-      </table>
-    </section>
+    <div class="ficha-pokemon__resumen">
+      <figure class="ficha-pokemon__imagen">
+        <img src="../assets/${p.slug}-grande.png" alt="${p.nombre}" width="300">
+      </figure>
+
+      <section id="detalles">
+        <h2>Detalles</h2>
+        <dl class="ficha-pokemon__datos">
+          <dt>Categoría</dt><dd>${p.genus}</dd>
+          <dt>Peso</dt><dd>${p.peso.toFixed(1)} kg</dd>
+          <dt>Tamaño</dt><dd>${p.tamano.toFixed(1)} m</dd>
+          <dt>Tipo</dt><dd><ul class="tipos">${tipos}</ul></dd>
+        </dl>
+
+        <h3>Cadena evolutiva</h3>
+        <ol class="cadena-evolutiva">${evoluciones}</ol>
+      </section>
+    </div>
 
     <section id="habilidades">
       <h2>Habilidades</h2>
@@ -95,11 +107,6 @@ function dibujarFicha(p) {
           <tr class="stats-table__total"><th>Total</th><td>${totalStats(p)}</td></tr>
         </tfoot>
       </table>
-    </section>
-
-    <section id="evoluciones">
-      <h2>Evoluciones</h2>
-      <ol>${evoluciones}</ol>
     </section>
   `;
 }
@@ -143,6 +150,7 @@ if (!pokemon) {
     <p>No hay ningún Pokémon con ese número. <a href="index.html">Volver a la lista</a>.</p>
   `;
 } else {
+  if (contador) contador.textContent = `${pokedex.length} Pokémon`;
   document.title = `Pokédex - ${pokemon.nombre}`;
   dibujarFicha(pokemon);
   dibujarCarrusel(pokemon);
