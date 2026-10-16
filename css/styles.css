@@ -73,6 +73,28 @@ header {
     height: auto;
 }
 
+/* Contador y menú, uno sobre otro a la derecha */
+.header__acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contador {
+    margin: 0;
+
+    background: var(--amarillo);
+    color: var(--navy);
+    border: 2px solid var(--amarillo-borde);
+    border-radius: var(--radio-pastilla);
+
+    padding: 0.2rem 0.9rem;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
 header nav ul {
     display: flex;
     align-items: center;
@@ -97,7 +119,7 @@ header nav a:hover {
 }
 
 /* La página actual se marca como pastilla amarilla */
-header nav a[aria-current="page"] {
+header nav a[aria-current] {
     background: var(--amarillo);
     color: var(--navy);
 }
@@ -333,20 +355,228 @@ a:focus-visible {
    7. Detalle de Pokémon
    */
 
-#carrusel ul {
+#carrusel {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+#carrusel h2 {
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.carrusel {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 
     list-style: none;
     padding-left: 0;
 }
 
-article figure {
-    margin-left: 0;
+.carrusel a,
+.carrusel span {
+    display: inline-block;
+
+    border-radius: var(--radio-pastilla);
+    padding: 0.4rem 1rem;
+
+    font-weight: 700;
+    text-decoration: none;
 }
 
-article figure img {
-    max-width: 300px;
+.carrusel a {
+    background: rgb(255 255 255 / 0.1);
+}
+
+.carrusel a:hover {
+    background: var(--amarillo);
+    color: var(--navy);
+}
+
+/* Los de las puntas se ven más tenues */
+.carrusel li[data-pos="-2"],
+.carrusel li[data-pos="2"] {
+    opacity: 0.6;
+}
+
+.carrusel [aria-current] {
+    background: var(--amarillo);
+    color: var(--navy);
+}
+
+.volver a {
+    display: inline-block;
+
+    background: rgb(255 255 255 / 0.1);
+    border-radius: var(--radio-pastilla);
+    padding: 0.5rem 1.2rem;
+
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.volver a:hover {
+    background: rgb(255 255 255 / 0.2);
+}
+
+/* La ficha es una tarjeta blanca */
+#ficha-pokemon {
+    background: var(--blanco);
+    color: var(--navy);
+
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+
+    padding: 2rem 2.5rem;
+}
+
+#ficha-pokemon a {
+    color: var(--navy);
+}
+
+#ficha-pokemon h1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem;
+}
+
+.ficha-pokemon__numero {
+    background: var(--amarillo);
+    border: 2px solid var(--amarillo-borde);
+    border-radius: var(--radio-pastilla);
+
+    padding: 0.15rem 0.8rem;
+
+    font-size: 1rem;
+}
+
+/* Títulos de sección con una barra amarilla a la izquierda */
+#ficha-pokemon h2 {
+    border-left: 6px solid var(--amarillo);
+    padding-left: 0.6rem;
+}
+
+.ficha-pokemon__resumen {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 2.5rem;
+    align-items: start;
+}
+
+@media (max-width: 700px) {
+    .ficha-pokemon__resumen {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ficha-pokemon__imagen {
+    margin: 0;
+}
+
+/* Mismo fondo a rayas que las tarjetas de la lista */
+.ficha-pokemon__imagen img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    background: repeating-linear-gradient(
+        135deg,
+        #ffffff 0 8px,
+        var(--pista) 8px 16px
+    );
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.12);
+
+    padding: 1.5rem;
+}
+
+.ficha-pokemon__datos {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+}
+
+.ficha-pokemon__datos dt {
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.ficha-pokemon__datos dd {
+    margin: 0;
+    font-weight: 700;
+}
+
+.tipos {
+    display: flex;
+    gap: 0.5rem;
+
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.tipo {
+    color: var(--blanco);
+    border-radius: var(--radio-pastilla);
+    padding: 0.2rem 0.9rem;
+
+    font-size: 0.9rem;
+}
+
+.tipo--planta { background: var(--tipo-planta); }
+.tipo--veneno { background: var(--tipo-veneno); }
+.tipo--fuego { background: var(--tipo-fuego); }
+.tipo--agua { background: var(--tipo-agua); }
+.tipo--electrico { background: var(--tipo-electrico); color: var(--navy); }
+.tipo--volador { background: var(--tipo-volador); }
+
+/* Cadena evolutiva: pastillas separadas por flechas */
+.cadena-evolutiva {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.cadena-evolutiva li + li::before {
+    content: "→";
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
+
+.cadena-evolutiva a,
+.cadena-evolutiva span {
+    display: inline-block;
+
+    background: var(--pista);
+    border-radius: var(--radio-pastilla);
+    padding: 0.4rem 1rem;
+
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.cadena-evolutiva a:hover {
+    background: var(--crema);
+}
+
+.cadena-evolutiva [aria-current] {
+    background: var(--amarillo);
 }
 
 
@@ -354,7 +584,6 @@ article figure img {
    8. Tablas
    */
 
-#detalles table,
 .stats-table {
     border-collapse: collapse;
 
@@ -362,8 +591,6 @@ article figure img {
     color: var(--navy);
 }
 
-#detalles th,
-#detalles td,
 .stats-table th,
 .stats-table td {
     border: 1px solid var(--pista);
@@ -409,7 +636,29 @@ footer a {
         padding: 1rem;
     }
 
-    header nav ul {
+    /* Contador y menú, uno sobre otro a la derecha */
+.header__acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contador {
+    margin: 0;
+
+    background: var(--amarillo);
+    color: var(--navy);
+    border: 2px solid var(--amarillo-borde);
+    border-radius: var(--radio-pastilla);
+
+    padding: 0.2rem 0.9rem;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+header nav ul {
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.25rem;
