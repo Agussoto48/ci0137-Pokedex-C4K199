@@ -1,0 +1,22 @@
+{
+  "name": "ci0137-pokedex-c4k199",
+  "version": "1.0.0",
+  "description": "Pokédex del curso CI-0137 Desarrollo de Aplicaciones Web, Universidad de Costa Rica.",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js",
+    "dev": "node --watch servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agussoto48/ci0137-Pokedex-C4K199.git"
+  },
+  "keywords": [
+    "node",
+    "http",
+    "pokedex",
+    "ci-0137"
+  ],
+  "license": "ISC",
+  "type": "commonjs"
+}
