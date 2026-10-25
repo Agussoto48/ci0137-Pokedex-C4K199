@@ -74,7 +74,7 @@ function dibujarFicha(p) {
 
     <div class="ficha-pokemon__resumen">
       <figure class="ficha-pokemon__imagen">
-        <img src="../assets/${p.slug}-grande.png" alt="${p.nombre}" width="300">
+        <img src="assets/${p.slug}-grande.png" alt="${p.nombre}" width="300">
       </figure>
 
       <section id="detalles">

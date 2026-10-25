@@ -28,7 +28,7 @@ function crearTarjeta(pokemon) {
   numero.textContent = numeroPokedex(pokemon.id);
 
   const img = document.createElement('img');
-  img.src = `../assets/${pokemon.slug}.png`;
+  img.src = `assets/${pokemon.slug}.png`;
   img.alt = pokemon.nombre;
   img.width = 70;
 
