@@ -1,4 +1,4 @@
-// Este archivo se encarga SOLO de una cosa: dado el tipo de archivo,
+// Este archivo se encarga solo de una cosa: dado el tipo de archivo,
 // decir qué Content-Type le corresponde.
 const tipos = {
   '.html': 'text/html; charset=utf-8',

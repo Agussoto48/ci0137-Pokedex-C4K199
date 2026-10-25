@@ -296,6 +296,11 @@ header nav a[aria-current] {
     font-weight: 900;
 }
 
+.pokemon-card .boton {
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
 
 /*
    5. Paginación
@@ -339,6 +344,13 @@ header nav a[aria-current] {
 .pokemon-card:focus-within {
     border-color: var(--amarillo);
     background: var(--crema);
+}
+
+.pokemon-card--capturado,
+.pokemon-card--capturado:hover,
+.pokemon-card--capturado:focus-within {
+    background: linear-gradient(var(--crema), #FFE3A8);
+    border-color: var(--rojo);
 }
 
 .pokemon-card a:hover .pokemon-card__name {
