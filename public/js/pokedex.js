@@ -1,3 +1,4 @@
+// Práctica de JS (arreglos, objetos y funciones). No lo usa ninguna página.
 const pokedex = [
   { id: 25, nombre: 'Pikachu', tipos: ['eléctrico'], hp: 35, ataque: 55, defensa: 40, velocidad: 90 },
   { id: 1, nombre: 'Bulbasaur', tipos: ['planta', 'veneno'], hp: 45, ataque: 49, defensa: 49, velocidad: 45 },
@@ -11,15 +12,12 @@ const pokedex = [
   { id: 9, nombre: 'Blastoise', tipos: ['agua'], hp: 79, ataque: 83, defensa: 100, velocidad: 78 },
 ];
 
-
-
-function describe(pokemon)
-{
-    return pokemon.nombre + ' #' + pokemon.id + ' (' + pokemon.tipos.join(',') + ') ';
+function describir(pokemon) {
+  return pokemon.nombre + ' #' + pokemon.id + ' (' + pokemon.tipos.join(', ') + ')';
 }
 
-
-const alias = describir(pokedex[2]);
-console.log(alias);
-console.log(describe.length);
-console.log(describe.name);
+// Una función también es un valor: se puede guardar en otra variable
+const alias = describir;
+console.log(alias(pokedex[2]));
+console.log(describir.length);   // cantidad de parámetros
+console.log(describir.name);
