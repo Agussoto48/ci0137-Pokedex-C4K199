@@ -8,6 +8,7 @@
 //   pokedex       -> la lista de Pokémon
 //   numeroPokedex -> convierte 7 en "#007"
 import { pokedex, numeroPokedex } from './datos.js';
+import { estaCapturado, alternarCaptura } from './capturados.js';
 
 // Agarramos elementos del HTML (DOM) con querySelector (como en CSS):
 const lista = document.querySelector('.pokemon-list');   // el <ul> vacío
@@ -36,8 +37,26 @@ function crearTarjeta(pokemon) {
   nombre.textContent = pokemon.nombre;
 
   a.append(numero, img, nombre);
-  li.append(a);
+
+  // Va fuera del <a>: un botón dentro de un enlace no es válido
+  const boton = document.createElement('button');
+  boton.type = 'button';
+  pintarCaptura(li, boton, estaCapturado(pokemon.id));
+
+  boton.addEventListener('click', () => {
+    pintarCaptura(li, boton, alternarCaptura(pokemon.id));
+    if (form.elements.capturados.checked) dibujar(filtrar());
+  });
+
+  li.append(a, boton);
   return li;
+}
+
+function pintarCaptura(li, boton, capturado) {
+  li.classList.toggle('pokemon-card--capturado', capturado);
+  boton.className = `boton boton--chico ${capturado ? 'boton--rojo' : 'boton--borde-rojo'}`;
+  boton.setAttribute('aria-pressed', capturado);
+  boton.textContent = capturado ? '✓ Capturado' : 'Capturar';
 }
 
 // PASO 2 — pinta las tarjetas de la lista que se le pase
@@ -85,7 +104,7 @@ function filtrar() {
   return pokedex
     .filter((p) => normalizar(p.nombre).includes(nombre))
     .filter((p) => !tipo || p.tipos.some((t) => normalizar(t) === tipo))
-    .filter((p) => !soloCapturados || p.capturado)
+    .filter((p) => !soloCapturados || estaCapturado(p.id))
     .filter((p) => etapa === 'todas' || p.etapa === etapa)
     .sort(orden);
 }

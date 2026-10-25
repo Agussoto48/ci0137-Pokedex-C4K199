@@ -18,4 +18,37 @@
     --radio: 10px;
     --radio-pastilla: 999px;
     --borde: 3px;
+
+    /* Usados por el perfil de entrenador */
+    --azul-borde: #245BB2;
+    --verde: #2E8B57;
+    --tinta-suave: #41557A;
+    --linea: #E3EAF3;
+
+    --stat-ps: #4BB976;
+    --stat-ataque: #EC5F40;
+    --stat-defensa: #5E9AEC;
+    --stat-velocidad: #F1B847;
+
+    --fuente-titulo: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+
+    --radio-lg: 24px;
+    --radio-xl: 30px;
+
+    --sombra-1: 0 1px 2px rgba(20, 44, 82, .12),
+                0 8px 16px -8px rgba(20, 44, 82, .45);
+    --sombra-2: 0 2px 4px rgba(20, 44, 82, .10),
+                0 18px 34px -14px rgba(20, 44, 82, .55);
+    --sombra-3: 0 4px 8px rgba(10, 24, 48, .15),
+                0 34px 70px -20px rgba(10, 24, 48, .75);
+    --brillo: inset 0 2px 0 rgba(255, 255, 255, .7);
+
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --dur: 220ms;
+
+    --sprite-raya: #D7E9F6;
+    --sprite-fondo: #FFFFFF;
+    --sprite-zona:
+        radial-gradient(circle at 50% 58%, var(--sprite-fondo) 0, var(--sprite-fondo) 34%, transparent 72%),
+        repeating-linear-gradient(-45deg, var(--sprite-raya) 0 5px, #EBF3FA 5px 10px);
 }
