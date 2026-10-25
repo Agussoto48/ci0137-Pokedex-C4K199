@@ -27,3 +27,8 @@ export function alternarCaptura(id) {
   localStorage.setItem(LLAVE, JSON.stringify(ids));
   return estaCapturado(id);
 }
+
+// Copia de los ids capturados (para que nadie modifique el original)
+export function listaCapturados() {
+  return [...ids];
+}
