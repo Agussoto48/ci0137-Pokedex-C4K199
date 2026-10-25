@@ -1,2 +1,13 @@
+# Proyecto de referencia (solo para comparar)
 ci0137-pokedex-2026
+
+# Dependencias
 node_modules/
+
+# Variables de entorno
+.env
+.env.local
+
+# Archivos generados
+dist/
+build/
