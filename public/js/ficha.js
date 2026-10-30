@@ -57,6 +57,12 @@ function dibujarFicha(p) {
       <td>${valor}</td>
     </tr>`).join('');
 
+  const mayorStat = Math.max(...Object.values(p.stats));
+  const destacadas = Object.entries(p.stats)
+    .filter(([, valor]) => valor === mayorStat)
+    .map(([clave]) => nombresStats[clave])
+    .join(', ');
+
   // El actual va resaltado; los que no están en la Pokédex (p. ej. Pichu) van sin enlace
   const evoluciones = p.evolucion.map((nombre) => {
     const evo = pokedex.find((x) => x.nombre === nombre);
@@ -70,6 +76,14 @@ function dibujarFicha(p) {
       <span class="ficha-pokemon__numero">${numeroPokedex(p.id)}</span>
       ${p.nombre}
     </h1>
+    <nav aria-label="Secciones de la ficha">
+      <ul>
+        <li><a href="#detalles">Detalles</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#estadisticas">Estadísticas</a></li>
+        <li><a href="#mas-informacion">Más información</a></li>
+      </ul>
+    </nav>
     <p>${p.descripcion}</p>
 
     <div class="ficha-pokemon__resumen">
@@ -107,6 +121,29 @@ function dibujarFicha(p) {
           <tr class="stats-table__total"><th>Total</th><td>${totalStats(p)}</td></tr>
         </tfoot>
       </table>
+    </section>
+
+    <section id="mas-informacion">
+      <h2>Más información</h2>
+      <h3>¿Cómo se leen las estadísticas?</h3>
+      <p>Estos valores son las estadísticas base de la especie: permiten comparar
+        sus características con las de otros Pokémon. Los PS son los Puntos de
+        Salud; el Ataque y la Defensa corresponden a movimientos físicos, y el
+        Ataque especial y la Defensa especial a movimientos especiales.
+        La Velocidad influye en el orden de los turnos.</p>
+      <p>En ${p.nombre}, el valor base más alto es ${mayorStat} y corresponde a:
+        ${destacadas}. El total de la tabla suma las seis estadísticas;
+        no representa el nivel del Pokémon ni garantiza ganar un combate.</p>
+
+      <h3>¿Qué es una habilidad oculta?</h3>
+      <p>Es una habilidad alternativa que se obtiene por métodos especiales.
+        No se suma a la habilidad habitual: un Pokémon tiene una habilidad
+        activa a la vez. En esta ficha las identificamos con la palabra
+        «oculta» junto al nombre.</p>
+
+      <h3>Seguir explorando</h3>
+      <p><a href="https://pokemondb.net/pokedex/${p.slug}" target="_blank" rel="noopener noreferrer">Consultar más información de ${p.nombre} en Pokémon Database</a>
+        (se abre en una pestaña nueva).</p>
     </section>
   `;
 }
